@@ -5,15 +5,15 @@ const Channels = () => {
   const channels: IChannel[] = [
     {
       text: "Topics",
-      subChannels: [],
+      subChannels: [{ text: "tailwind-css" }, { text: "react" }],
     },
     {
       text: "Questions",
-      subChannels: [],
+      subChannels: [{ text: "styling" }, { text: "js" }, { text: "NextJS" }],
     },
     {
       text: "Random",
-      subChannels: [],
+      subChannels: [{ text: "channel" }],
     },
   ];
 

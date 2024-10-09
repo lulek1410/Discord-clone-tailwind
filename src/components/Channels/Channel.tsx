@@ -2,9 +2,11 @@ import { useState } from "react";
 
 import { FaChevronRight, FaPlus } from "react-icons/fa";
 
+import SubChannel from "./SubChannel";
+
 import { IChannel } from "./types";
 
-const Channel = ({ text }: IChannel) => {
+const Channel = ({ text, subChannels }: IChannel) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleOpen = () => {
@@ -13,17 +15,23 @@ const Channel = ({ text }: IChannel) => {
 
   return (
     <li>
-      <div className="flex items-center text-gray-500 hover:text-gray-400">
-        <button
-          className="flex grow gap-1 items-center font-bold"
-          onClick={toggleOpen}
-        >
+      <button
+        className={`flex w-full items-center justify-between text-gray-500 hover:text-gray-400`}
+        onClick={toggleOpen}
+      >
+        <div className="flex gap-1 items-center font-bold">
           <FaChevronRight size={12} />
-          <span>{text}</span>
-        </button>
+          <span className={isOpen ? "text-blue-500" : ""}>{text}</span>
+        </div>
         <FaPlus size={10} />
-      </div>
-      {isOpen && <ul></ul>}
+      </button>
+      {isOpen && (
+        <ul>
+          {subChannels.map((subChannel, index) => (
+            <SubChannel text={subChannel.text} key={index} />
+          ))}
+        </ul>
+      )}
     </li>
   );
 };
