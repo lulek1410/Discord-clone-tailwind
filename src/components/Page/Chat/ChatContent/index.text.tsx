@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
 
-import Chat from ".";
+import ChatContent from ".";
 
-describe("Chat", () => {
+describe("ChatContent", () => {
   test("renders", async () => {
-    render(<Chat />);
-    expect(screen.getByRole("banner")).toBeInTheDocument();
+    render(<ChatContent />);
     expect(screen.getByRole("main")).toBeInTheDocument();
+    expect(screen.getByRole("textbox")).toBeInTheDocument();
   });
 });

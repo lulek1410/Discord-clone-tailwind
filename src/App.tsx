@@ -4,7 +4,7 @@ import Sidebar from "./components/Page/Sidebar";
 
 function App() {
   return (
-    <div className="flex">
+    <div className="flex h-screen">
       <Sidebar />
       <Channels />
       <Chat />
